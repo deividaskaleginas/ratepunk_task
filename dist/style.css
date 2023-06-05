@@ -1,1 +1,1 @@
-html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}body{margin:0;padding:0;line-height:2.2rem}/*# sourceMappingURL=style.css.map */
+html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}body{margin:0;padding:0;line-height:2.2rem}a{text-decoration:none}.imgWrapper{display:flex;align-items:center}.imgWrapper__img{-o-object-fit:contain;object-fit:contain;width:100%;position:relative;height:unset}:root{--white: #fff;--black: #1f343e;--navLinkActive: #4eb3e3;--burgerBackground: #bdc1c3}/*# sourceMappingURL=style.css.map */

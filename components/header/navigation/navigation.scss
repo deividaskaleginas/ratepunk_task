@@ -1,0 +1,54 @@
+@use "../../../styles//utils/" as u;
+
+@include u.breakpoint-down(mobile) {
+  .navigation {
+    position: absolute;
+    top: -111px;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    transform: translateY(99%);
+    width: calc(100% + 0.2rem);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease-in-out 0s;
+    will-change: max-height;
+
+    &__link {
+      color: var(--black);
+    }
+  }
+
+  .navigation.--active {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-height: 45vh;
+    margin-left: 0.0625rem;
+    padding: 0 1.6rem 2rem;
+    border: 0.125rem solid var(--black);
+    border-top: none;
+  }
+}
+
+@include u.breakpoint(desktop) {
+  .navigation {
+    display: flex;
+    gap: 2rem;
+
+    &__link {
+      color: var(--black);
+      transition: color 0.25s ease-in-out;
+      will-change: color;
+
+      &:nth-child(1) {
+        color: var(--navLinkActive);
+      }
+    }
+
+    &__link:hover,
+    &__link:active {
+      color: var(--navLinkActive);
+    }
+  }
+}

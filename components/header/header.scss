@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: center;
+  border: 0.125rem solid var(--black);
+  margin: 0.0625rem;
+  margin-bottom: 0;
+
+  &__block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--white);
+    max-width: 70rem;
+    padding: 1rem 2rem;
+  }
+}
