@@ -1,3 +1,5 @@
+@use "../../styles//utils/" as u;
+
 .formContainer {
   display: flex;
   flex-direction: column;
@@ -45,5 +47,15 @@
         }
       }
     }
+  }
+
+  @include u.breakpoint(desktop) {
+    padding: 4rem;
+
+    &__block {
+    }
+  }
+  @include u.breakpoint(desktop) {
+    gap: 15rem;
   }
 }

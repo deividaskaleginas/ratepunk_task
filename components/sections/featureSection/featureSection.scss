@@ -1,4 +1,32 @@
+@use "../../../styles//utils/" as u;
+
 .featureSection {
   background-color: var(--sectionBackgroundYellow);
   padding: 2rem 1rem;
+
+  &__container {
+    max-width: 70rem;
+    @include u.breakpoint(desktop) {
+      display: flex;
+    }
+  }
+
+  @include u.breakpoint(desktop) {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 0;
+
+    &__container {
+      display: flex;
+      gap: 4rem;
+
+      &__formBlock {
+        flex: 2.5;
+      }
+
+      &__instructionBlock {
+        flex: 2;
+      }
+    }
+  }
 }
