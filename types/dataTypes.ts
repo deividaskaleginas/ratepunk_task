@@ -12,3 +12,9 @@ export type InstructionData = {
   description: string;
   imgAlt: string;
 };
+
+export type AvailableData = {
+  icon: StaticImageData;
+  text: string;
+  imgAlt: string;
+};

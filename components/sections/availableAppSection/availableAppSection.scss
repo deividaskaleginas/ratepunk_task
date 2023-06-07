@@ -1,0 +1,52 @@
+@use "../../../styles/utils/" as u;
+
+.available {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem;
+  background-color: var(--sectionBackgroundDark);
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 70rem;
+
+    &__app {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 2rem;
+      border: 0.0625rem solid var(--black);
+      border-radius: 0.9375rem;
+
+      &__textBlock {
+        &__paragraph {
+          color: var(--white);
+        }
+        &__span {
+          color: var(--white);
+          font-size: 1.8rem;
+          font-weight: 700;
+        }
+      }
+    }
+
+    &__raeting {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      &__stars {
+        font-size: 1.5rem;
+        color: var(--white);
+      }
+      &__text {
+        color: var(--white);
+      }
+    }
+
+    @include u.breakpoint(desktop) {
+      flex-direction: row;
+    }
+  }
+}
