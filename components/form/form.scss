@@ -109,8 +109,8 @@
       }
 
       &__button.--success {
-        flex: 1;
         @include u.breakpoint(desktop) {
+          flex: 1;
           border-top-left-radius: 0;
           border-bottom-left-radius: 0;
           border-left: none;
