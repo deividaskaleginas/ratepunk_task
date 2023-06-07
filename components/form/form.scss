@@ -1,0 +1,49 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding: 2rem 1rem;
+  border: 1px solid var(--black);
+  border-radius: 1.125rem;
+  background-color: var(--formBackground);
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    &__textBlock {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      &__messageBlock {
+      }
+
+      &__inputBlock {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        border: 1px solid var(--black);
+
+        padding: 0 1.6rem;
+        height: 4rem;
+        border-radius: 0.8rem;
+        background-color: var(--white);
+        transition: all 0.25s ease-in-out 0s;
+
+        &__input {
+          width: 100%;
+          border: none;
+          font-size: 1.3rem;
+          line-height: 1.2rem;
+        }
+      }
+    }
+  }
+}

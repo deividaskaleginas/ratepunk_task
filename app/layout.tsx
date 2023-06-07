@@ -8,7 +8,7 @@ const kalam = Kalam({
 });
 const notoSans = Noto_Sans({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "700"],
   variable: "--natoSans-font",
 });
 
