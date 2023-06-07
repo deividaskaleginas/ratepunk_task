@@ -42,13 +42,13 @@
       will-change: color;
 
       &:nth-child(1) {
-        color: var(--navLinkActive);
+        color: var(--whiteBlue);
       }
     }
 
     &__link:hover,
     &__link:active {
-      color: var(--navLinkActive);
+      color: var(--whiteBlue);
     }
   }
 }

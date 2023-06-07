@@ -1,0 +1,29 @@
+.instructions {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 1rem;
+  gap: 4rem;
+  &__instruction {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    &__textBlock {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      &__step {
+        color: var(--whiteBlue);
+        font-weight: 700;
+        font-size: 1.4rem;
+      }
+
+      &__title {
+      }
+      &__description {
+        color: var(--black);
+      }
+    }
+  }
+}
