@@ -8,6 +8,7 @@
     max-width: 70rem;
     @include u.breakpoint(desktop) {
       display: flex;
+      padding: 0 1rem;
     }
   }
 

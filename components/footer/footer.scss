@@ -1,0 +1,111 @@
+@use "../../styles/utils/" as u;
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: var(--greyBackground);
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 70rem;
+    padding: 4rem 2rem;
+
+    @include u.breakpoint(desktop) {
+      flex-direction: row;
+      gap: 4rem;
+    }
+
+    &__ratepunk {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      @include u.breakpoint(desktop) {
+        flex: 1;
+
+        p {
+          font-size: 1.3rem;
+          line-height: 1.6rem;
+        }
+      }
+
+      &__allRightsReserved {
+        display: none;
+
+        @include u.breakpoint(desktop) {
+          display: block;
+        }
+      }
+    }
+
+    &__linksBlock {
+      &__links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+
+        &__link {
+          transition: color 0.25s ease-in-out;
+          will-change: color;
+          color: var(--black);
+        }
+        @include u.breakpoint(desktop) {
+          &__link:hover,
+          &__link.--active {
+            color: var(--lightBlue);
+          }
+        }
+      }
+    }
+
+    &__contactSocial {
+      display: flex;
+      flex-direction: column;
+
+      @include u.breakpoint(desktop) {
+        justify-content: space-between;
+      }
+
+      &__contact {
+        &__email {
+          display: flex;
+          gap: 1rem;
+
+          a {
+            font-size: 1.2rem;
+            color: var(--black);
+          }
+        }
+      }
+
+      &__social {
+        &__links {
+          display: flex;
+          gap: 0.5rem;
+
+          &__link {
+            padding: 0.8rem;
+            border: 1px solid var(--black);
+            border-radius: 0.5rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            text-align: center;
+            background-color: var(--lightBlue);
+          }
+        }
+      }
+    }
+
+    &__allRightsReserved {
+      p {
+        font-size: 1rem;
+      }
+
+      @include u.breakpoint(desktop) {
+        display: none;
+      }
+    }
+  }
+}

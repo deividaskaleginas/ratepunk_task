@@ -5,6 +5,7 @@
   justify-content: center;
   padding: 3rem 1rem;
   background-color: var(--sectionBackgroundDark);
+
   &__container {
     display: flex;
     flex-direction: column;
@@ -16,7 +17,7 @@
       align-items: center;
       gap: 1rem;
       padding: 1rem 2rem;
-      border: 0.0625rem solid var(--black);
+      border: 1px solid var(--black);
       border-radius: 0.9375rem;
 
       &__textBlock {
@@ -25,19 +26,20 @@
         }
         &__span {
           color: var(--white);
-          font-size: 1.8rem;
+          font-size: 1.4rem;
           font-weight: 700;
         }
       }
     }
 
-    &__raeting {
+    &__rating {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 1rem;
+
       &__stars {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         color: var(--white);
       }
       &__text {

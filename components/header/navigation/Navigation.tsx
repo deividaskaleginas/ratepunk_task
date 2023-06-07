@@ -1,13 +1,8 @@
 import { NavLinksData } from "@/types/dataTypes";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 import "./navigation.scss";
-
-const NAV_LINKS: NavLinksData[] = [
-  { name: "Price Comparison", link: "/" },
-  { name: "Blog", link: "/" },
-];
 
 interface NavigationProps {
   open: boolean;
@@ -15,18 +10,31 @@ interface NavigationProps {
 }
 
 export const Navigation: React.FC<NavigationProps> = ({ open, browser }) => {
+  const NAV_LINKS: NavLinksData[] = [
+    { name: `${browser} Extension`, link: "/" },
+    { name: "Price Comparison", link: "/" },
+    { name: "Blog", link: "/" },
+  ];
+  const [selectedLink, setSelectedLink] = useState<string>(
+    `${browser} Extension`
+  );
+
   return (
     <nav className={open ? "navigation --active" : "navigation"}>
-      <Link href={"/"} className="navigation__link">
-        {browser} Extension
-      </Link>
-      {NAV_LINKS.map(({ name, link }, index) => {
-        return (
-          <Link key={index} href={link} className="navigation__link">
-            {name}
-          </Link>
-        );
-      })}
+      {NAV_LINKS.map(({ name, link }, index) => (
+        <Link
+          key={index}
+          href={link}
+          onClick={() => setSelectedLink(name)}
+          className={
+            selectedLink === name
+              ? "navigation__link --active"
+              : "navigation__link"
+          }
+        >
+          {name}
+        </Link>
+      ))}
     </nav>
   );
 };

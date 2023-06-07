@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 import "./instruction.scss";
 
@@ -6,8 +7,6 @@ import invite from "../../public/assets/svg/invite.svg";
 import collect from "../../public/assets/svg/collect-coins.svg";
 import voucher from "../../public/assets/svg/voucher.svg";
 import { InstructionData } from "@/types/dataTypes";
-import { describe } from "node:test";
-import Image from "next/image";
 
 const INSTRUCTIONS: InstructionData[] = [
   {
@@ -35,35 +34,31 @@ const INSTRUCTIONS: InstructionData[] = [
   },
 ];
 
-export const Instruction: React.FC = () => {
-  return (
-    <div className="instructions">
-      {INSTRUCTIONS.map(({ icon, step, title, description, imgAlt }, index) => {
-        return (
-          <div key={index} className="instructions__instruction">
-            <div className="imgWrapper">
-              <Image src={icon} alt={imgAlt} />
-            </div>
-            <div className="instructions__instruction__textBlock">
-              <div>
-                <span className="instructions__instruction__textBlock__step">
-                  {step.toUpperCase()}
-                </span>
-              </div>
-              <div>
-                <h2 className="instructions__instruction__textBlock__title">
-                  {title.toUpperCase()}
-                </h2>
-              </div>
-              <div>
-                <p className="instructions__instruction__textBlock__description">
-                  {description}
-                </p>
-              </div>
-            </div>
+export const Instruction: React.FC = () => (
+  <div className="instructions">
+    {INSTRUCTIONS.map(({ icon, step, title, description, imgAlt }, index) => (
+      <div key={index} className="instructions__instruction">
+        <div className="imgWrapper">
+          <Image src={icon} alt={imgAlt} />
+        </div>
+        <div className="instructions__instruction__textBlock">
+          <div>
+            <span className="instructions__instruction__textBlock__step">
+              {step.toUpperCase()}
+            </span>
           </div>
-        );
-      })}
-    </div>
-  );
-};
+          <div>
+            <h2 className="instructions__instruction__textBlock__title">
+              {title.toUpperCase()}
+            </h2>
+          </div>
+          <div>
+            <p className="instructions__instruction__textBlock__description">
+              {description}
+            </p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+);

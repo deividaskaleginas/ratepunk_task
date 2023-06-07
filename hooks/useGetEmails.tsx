@@ -1,9 +1,7 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 interface SubscribersResponse {
-  record: {
-    subscribers: Subscriber[];
-  };
+  record: Subscriber;
   metadata: {
     id: string;
     private: boolean;
@@ -15,9 +13,23 @@ interface Subscriber {
   email: string;
 }
 
-export const useGetEmails = () => {
+export enum SubmitStatus {
+  SUCCESS = "success",
+  ERROR = "error",
+  DEFAULT = "default",
+  LOADING = "loading",
+}
+
+interface UseGetEmails {
+  checkSubscribers: (email: string) => Promise<void>;
+  message: string;
+  setMessage: Dispatch<SetStateAction<string>>;
+  status: SubmitStatus;
+}
+
+export const useGetEmails = (): UseGetEmails => {
   const [message, setMessage] = useState<string>("");
-  console.log(message);
+  const [status, setStatus] = useState<SubmitStatus>(SubmitStatus.DEFAULT);
 
   //TODO: Add to .env
   const headers = {
@@ -26,25 +38,28 @@ export const useGetEmails = () => {
     "Content-Type": "application/json",
   };
   const checkSubscribers = async (email: string) => {
-    console.log("iskviecia");
+    setStatus(SubmitStatus.LOADING);
+    setMessage("");
     try {
       const response: SubscribersResponse = await fetch(
         "https://api.jsonbin.io/v3/b/647d80459d312622a36aa0b5/",
         { headers }
       ).then((resp) => resp.json());
 
-      const findEmail = Boolean(
-        response.record.subscribers.find((item) => item.email === email)
-      );
+      const findEmail = Boolean(response.record.email === email);
+
+      postSubscriber(email);
 
       if (findEmail) {
-        setMessage("Email already exist");
+        setMessage("Email already registered");
+        setStatus(SubmitStatus.ERROR);
       } else {
         postSubscriber(email);
-        setMessage("You email successfully submitted");
+        setMessage("Your email is confirmed!");
+        setStatus(SubmitStatus.SUCCESS);
       }
     } catch (error) {
-      console.log(error);
+      setStatus(SubmitStatus.ERROR);
     }
   };
 
@@ -56,8 +71,10 @@ export const useGetEmails = () => {
         body: JSON.stringify({ email: email }),
       });
     } catch (error) {
-      console.log(error);
+      setStatus(SubmitStatus.ERROR);
+      setMessage("Something went wrong");
     }
   };
-  return { checkSubscribers, message, setMessage };
+
+  return { checkSubscribers, message, setMessage, status };
 };

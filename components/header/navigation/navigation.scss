@@ -24,7 +24,7 @@
     flex-direction: column;
     gap: 1.2rem;
     max-height: 45vh;
-    margin-left: 0.0625rem;
+    margin-left: 1px;
     padding: 0 1.6rem 2rem;
     border: 0.125rem solid var(--black);
     border-top: none;
@@ -40,15 +40,11 @@
       color: var(--black);
       transition: color 0.25s ease-in-out;
       will-change: color;
-
-      &:nth-child(1) {
-        color: var(--whiteBlue);
-      }
     }
 
     &__link:hover,
-    &__link:active {
-      color: var(--whiteBlue);
+    &__link.--active {
+      color: var(--lightBlue);
     }
   }
 }

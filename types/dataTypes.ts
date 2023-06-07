@@ -17,4 +17,10 @@ export type AvailableData = {
   icon: StaticImageData;
   text: string;
   imgAlt: string;
+  linkToStore: string;
+};
+
+export type SocialLinkData = {
+  icon: StaticImageData;
+  link: string;
 };
